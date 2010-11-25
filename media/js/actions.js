@@ -69,9 +69,8 @@ $(document).ready(function(){
 		var fichaId = urlArray[urlArray.length-2];
 		var url = urlbase + 'ficha/' + fichaId + '/';
 	}else{
-		var numPaciente = urlArray[urlArray.length-2];
-		var numForm = parseInt(urlArray[urlArray.length-3],10) + 1;
-		var url = urlbase + 'patientLastRegister/' + numForm + '/' + numPaciente + '/';
+		var fichaId = urlArray[urlArray.length-2];
+		var url = urlbase + 'patientLastRegisterByType/' + fichaId + '/Consulta/';
 	}
 	$.ajax({
 		type: 'POST',
