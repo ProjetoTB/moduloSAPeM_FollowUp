@@ -642,38 +642,40 @@ $(document).ready(function(){
 		dataType: "html",
 		success: function(text){
 			triagem = text;
+		},
+		complete: function(){
+			var tipoTriagem = '';
+			if ((triagem.search('Amb') != -1)||(triagem.search('amb') != -1))
+				tipoTriagem = 'ambulatorio';
+			else if ((triagem.search('Hos') != -1)||(triagem.search('hos') != -1))
+				tipoTriagem = 'hospital';
+			$('#seguimentoClinico').change(function(){
+				var dep1 = new Array();
+				dep1[0] = '#divInternacaoHospitalar';
+				var dep2 = new Array();
+				dep2[0] = '#divEncaminhamentoParaUbs';
+				var dep3 = new Array();
+				dep3[0] = '#divDataInternacao';
+				dep3[1] = '#divDataAlta';
+				var dep4 = new Array();
+				dep4[0] = '#divDataAltaHospitalar';
+				dep4[1] = '#divDataEncaminhamento';
+				dep4[2] = '#divDataInicioTratamentoUnidade';
+				if ($('#formulario').val()=='seguimentoClinico180')
+					if ($(this).val() == 'ubs' || $(this).val() == 'ambulatorioDeReferencia')
+					{
+						if (tipoTriagem == 'ubs' || tipoTriagem == 'ambulatorio')
+							$().showFields(dep1);
+						if (tipoTriagem == 'hospital')
+							$().showFields(dep2);
+					}else{
+						$().hideFields(dep1);
+						$().hideFields(dep2);
+						$().hideFields(dep3);
+						$().hideFields(dep4);
+					}
+			});
 		}
-	});
-	var tipoTriagem = '';
-	if (triagem.search('Ambulatório') != -1)
-		tipoTriagem = 'ambulatorio';
-	else if (triagem.search('Hospital') != -1)
-		tipoTriagem = 'hospital';
-	$('#seguimentoClinico').change(function(){
-		var dep1 = new Array();
-		dep1[0] = '#divInternacaoHospitalar';
-		var dep2 = new Array();
-		dep2[0] = '#divEncaminhamentoParaUbs';
-		var dep3 = new Array();
-		dep3[0] = '#divDataInternacao';
-		dep3[1] = '#divDataAlta';
-		var dep4 = new Array();
-		dep4[0] = '#divDataAltaHospitalar';
-		dep4[1] = '#divDataEncaminhamento';
-		dep4[2] = '#divDataInicioTratamentoUnidade';
-		if ($('#formulario').val()=='seguimentoClinico180')
-			if ($(this).val() == 'ubs' || $(this).val() == 'ambulatorioDeReferencia')
-			{
-				if (tipoTriagem == 'ubs' || tipoTriagem == 'ambulatorio')
-					$().showFields(dep1);
-				if (tipoTriagem == 'hospital')
-					$().showFields(dep2);
-			}else{
-				$().hideFields(dep1);
-				$().hideFields(dep2);
-				$().hideFields(dep3);
-				$().hideFields(dep4);
-			}
 	});
 	$('#internacaoHospitalar').change(function(){
 		var dep = new Array();
