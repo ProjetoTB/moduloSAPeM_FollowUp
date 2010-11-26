@@ -410,7 +410,8 @@ $(document).ready(function(){
 								$(this).addClass('required');
 							else
 								$(this).removeClass('required');
-						$(this).addClass('required');
+						else
+							$(this).addClass('required');
 					}
 				});
 				if($(ped[div]).css('display') != 'block'){
