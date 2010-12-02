@@ -53,8 +53,6 @@ function writeTable(xmlstring, div){
 	table.addClass('registers');
 	table.css('border-collapse', 'collapse');
 	var tbody = $('<tbody />');
-	if (xml.getElementsByTagName('error')[0] == undefined)
-		throw "Nothing to write"
 	var elements = xml.getElementsByTagName('documento')[0].childNodes;
 	$(elements).each(function(){
 		var el = $(this).get(0);
