@@ -764,6 +764,7 @@ $(document).ready(function(){
 			   && element[0].nodeName != 'OPTION')
 				$(this).addClass('required');
 		});
+		$('#outrosSintomas').removeClass('required');
 	});
 	//But Observacoes
 	var elem_obs = $('*','#divObservacoes');
