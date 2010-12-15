@@ -96,6 +96,8 @@ function getScrollXY() {
 //Document is ready, let's play
 $(document).ready(function(){
 
+	//Write the date in a portuguese format
+	//when the document is ready
 	$('#dataPreenchimento').writePortugueseDate();
 
 /*------------------------------Edition and Relation-----------------------------*/
@@ -244,8 +246,11 @@ $(document).ready(function(){
 			}
 		}
 	});
-/*-------------------------------------------------------------------------------*/
+/*-----------------------------------------------------------------------------------*/
 /*------------------------------Auxiliar Function------------------------------------*/
+
+	var hlcolor = '#FFF8C6';
+
 	//Show fields
 	$.fn.showFields = function(argumento){
 		var dep = argumento;
@@ -294,9 +299,6 @@ $(document).ready(function(){
 		}
 	}
 /*----------------------------------------------------------------------------*/
-
-	var hlcolor = '#FFF8C6';
-
 /*------------------------------ Data Quality  ----------------------------------*/
 	$('.data').datepicker({
 		dateFormat: 'dd/mm/yy',
@@ -325,7 +327,7 @@ $(document).ready(function(){
 			return false;
 		}
 	});
-/*----------------------------------------------------------------------------*/
+/*------------------------------------------------------------------------------*/
 /*--------------------------- Secondary Fields ---------------------------------*/
 
 	//Definindo o formulario
@@ -351,7 +353,7 @@ $(document).ready(function(){
 		if($(this).val()=='sim')
 			$().showFields(dep);
 		// Se nao, ocultar colunas listadas a cima
-		if($(this).val()=='nao'){
+		else if($(this).val()=='nao'){
 			dep[7] = '#divReacoesAdversasTuberculostaticosMaiores';
 			dep[8] = '#divReacoesAdversasTuberculostaticosMenores';
 			dep[9] = '#divDataMudanca';
@@ -614,13 +616,36 @@ $(document).ready(function(){
 			}
 		}
 	});
+	$('#internacaoHospitalar').change(function(){
+		var dep = new Array();
+		dep[0] = '#divDataInternacao';
+		dep[1] = '#divDataAlta';
+		if ($(this).val() == 'sim')
+			$().showFieldsWithoutRequirement(dep);
+		else
+			$().hideFields(dep);
+	});
+	$('#encaminhamentoParaUbs').change(function(){
+		var dep = new Array();
+		dep[0] = '#divDataAltaHospitalar';
+		dep[1] = '#divDataEncaminhamento';
+		dep[2] = '#divDataInicioTratamentoUnidade';
+		if ($(this).val() == 'sim')
+			$().showFieldsWithoutRequirement(dep);
+		else
+			$().hideFields(dep);
+	});
+
 
 /*---------------------------- Other logics -----------------------------*/
 
+	//Disabled all select fields until "formulario"
+	//field has no value
 	$('select').each(function(){
 		if ($(this).attr('id') != 'formulario')
 			$(this).attr('disabled',true);
 	});
+	//Enable fields
 	$('#formulario').change(function(){
 		if ($(this).val())
 			$('select').each(function(){
@@ -633,6 +658,7 @@ $(document).ready(function(){
 					$(this).attr('disabled',true);
 			});
 	});
+	//Select the type of triagem based on cgi response
 	var triagem = '';
 	var patientId = urlString[urlString.length-2];
 	$.ajax({
@@ -676,26 +702,6 @@ $(document).ready(function(){
 			});
 		}
 	});
-	$('#internacaoHospitalar').change(function(){
-		var dep = new Array();
-		dep[0] = '#divDataInternacao';
-		dep[1] = '#divDataAlta';
-		if ($(this).val() == 'sim')
-			$().showFieldsWithoutRequirement(dep);
-		else
-			$().hideFields(dep);
-	});
-	$('#encaminhamentoParaUbs').change(function(){
-		var dep = new Array();
-		dep[0] = '#divDataAltaHospitalar';
-		dep[1] = '#divDataEncaminhamento';
-		dep[2] = '#divDataInicioTratamentoUnidade';
-		if ($(this).val() == 'sim')
-			$().showFieldsWithoutRequirement(dep);
-		else
-			$().hideFields(dep);
-	});
-
 	$('#mudanca').click( function(){
 		if($('#mudanca').is(':checked')){
 			$('#data_mudanca').attr('disabled', true);
@@ -716,8 +722,6 @@ $(document).ready(function(){
 		$('input[name=farmacosOutros]').attr('disabled', 'true');
 		return;
 	});
-	//Houve obito?
-
 	//"Mudanca" enables input text
 	$('input[name=mudancaMotivo]:radio').click(function(){
 		if($(this).val() == "outro"){
