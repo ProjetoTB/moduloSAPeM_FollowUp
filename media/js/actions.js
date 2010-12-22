@@ -360,11 +360,14 @@ $(document).ready(function(){
 		dep[2] = '#divReacoesAdversasTuberculostaticos';
 		dep[3] = '#divMudancaEsquemaTratamentoTB';
 		dep[4] = '#divTosseDiminuida';
+		var ped = new Array();
+		ped[0] = '#divMotivoSeguimentoNaoRealizado';
 		// Se sim, disponibilizar colunas listadas a cima
-		if($(this).val()=='sim')
+		if($(this).val()=='sim'){
 			$().showFields(dep);
+			$().hideField(ped);
 		// Se nao, ocultar colunas listadas a cima
-		else if($(this).val()=='nao'){
+		}else if($(this).val()=='nao'){
 			dep[7] = '#divReacoesAdversasTuberculostaticosMaiores';
 			dep[8] = '#divReacoesAdversasTuberculostaticosMenores';
 			dep[9] = '#divDataMudanca';
@@ -374,6 +377,7 @@ $(document).ready(function(){
 			dep[13] = '#divSuspensaoTratamentoTB';
 			dep[6] = '#divSuspensaoDiasTratamentoTB';
 			$().hideFields(dep);
+			$().showFields(ped);
 		}
 	});
 
@@ -779,9 +783,8 @@ $(document).ready(function(){
 			   && element[0].nodeName != 'OPTION')
 				$(this).addClass('required');
 		});
-		$('#outrosSintomas').removeClass('required');
 	});
-	//But Observacoes
+	//But Observacoes and "Outros sintomas"
 	var elem_obs = $('*','#divObservacoes');
 	$(elem_obs).each(function(){
 		var element = $(this);
@@ -790,6 +793,14 @@ $(document).ready(function(){
 		   && element[0].nodeName != 'OPTION')
 			$(this).removeClass('required');
 	});
+	var elem_outrosSint = $('*','#divOutrosSintomas');
+	$(elem_outrosSint).each(function(){
+		var element = $(this);
+		if (  element[0].nodeName != 'FIELDSET'
+		   && element[0].nodeName != 'SMALL'
+		   && element[0].nodeName != 'OPTION')
+			$(this).removeClass('required');
+	})
 /*---------------------------------------------------------------------------*/
 /*------------------------- Load Exames Form --------------------------------*/
 	var urlString = $(location).attr('href');
