@@ -680,7 +680,7 @@ $(document).ready(function(){
 	var patientId = urlString[urlString.length-2];
 	$.ajax({
 		type: 'POST',
-		url: 'https://gruyere.lps.ufrj.br/~fferreira/sapem/triagemName/' + patientId + '/',
+		url: urlbase + 'triagemName/' + patientId + '/',
 		dataType: "html",
 		success: function(text){
 			triagem = text;
