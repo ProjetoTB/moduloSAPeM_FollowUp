@@ -23,6 +23,12 @@
 		</div>
 		<div id='content'>
 			<div id='maincontent'><form id='form_followup' action='cgi-bin/submitForm.py' method='POST'>
+				<fieldset>
+					<div id='divHorarioInicioEntrevista' class='primary required'>
+						<label for='horarioInicioEntrevista'> Horário do Inicio da entrevista: </label>
+						<input type='text' name='horarioInicioEntrevista' id='horarioInicioEntrevista' size='6' maxlength='6' readonly/>
+					</div>
+				</fieldset>
 				<fieldset id='followup'>
 					<legend>Seguimento Clínico</legend>
 					<div id='divFormulario' class='primary'>
@@ -510,6 +516,13 @@
 					<div id='divDataPreenchimento' class='primary'>
 						<label for='dataPreenchimento'> Data do Preenchimento: </label>
 						<input name='dataPreenchimento' id='dataPreenchimento' type='text' size='40' readonly/>
+					</div>
+					<div id='divHorarioFimEntrevista' class='primary required'>
+						<label for='horarioFimEntrevista'> Horário do fim da entrevista: </label>
+						<input type='text' name='horarioFimEntrevista' id='horarioFimEntrevista' size='6' maxlength='6' readonly/>
+					</div>
+					<div id='fraseAjudaHorario'>
+						<p>O horário do fim da entrevista será preenchido automaticamente ao clicar no botão "Enviar Formulário."</p><br />
 					</div>
 				</fieldset>
 				<fieldset>

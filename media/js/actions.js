@@ -94,6 +94,18 @@ function getScrollXY() {
 	return [ myWidth, myHeight ];
 }
 /*----------------------------------------------------------------------------*/
+//Make a clock
+function getTime(){
+	var time = new Date();
+	var hours = time.getHours();
+	if (hours.toString().length == 1)
+		hours = '0' + hours;
+	var minutes = time.getMinutes();
+	if (minutes.toString().length == 1)
+		minutes = '0' + minutes;
+	var timeStr = hours+':'+minutes;
+	return timeStr;
+}
 
 //Document is ready, let's play
 $(document).ready(function(){
@@ -771,6 +783,14 @@ $(document).ready(function(){
 		$('input[name=outro_diagnostico_sim]').attr('disabled', 'true');
 		return;
 	});
+/*---------------------------------------------------------------------------------------------------------*/
+	//Make a clock in the page e write date in
+	//a portuguese format
+	$('#form_followup').submit(function(){
+		$('#horarioFimEntrevista').val(getTime());
+	});
+	$('#horarioInicioEntrevista').val(getTime());
+/*---------------------------------------------------------------------------------------------------------*/
 /*---------------------------------------------------------------------------*/
 	$('div.secondary').css('display', 'none');
 /*---------------------------------------------------------------------------*/
