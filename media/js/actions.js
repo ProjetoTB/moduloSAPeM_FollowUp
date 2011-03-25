@@ -355,17 +355,6 @@ $(document).ready(function(){
 /*------------------------------------------------------------------------------*/
 /*--------------------------- Secondary Fields ---------------------------------*/
 
-	//Definindo o formulario
-	$('#formulario').change(function(){
-		var dep = new Array();
-		if($('#formulario').val() == 'seguimentoClinico60')
-			$('#tituloRXTorax').html('RX de Tórax (60 dias)');
-		else if($('#formulario').val() == 'seguimentoClinico180')
-			$('#tituloRXTorax').html('RX de Tórax (180 dias)');
-		else
-			$('#tituloRXTorax').html('RX de Tórax');
-	});
-
 	//Foi prescrito TB?
 	$('#tratamentoPrescritoTB').change(function(){
 		var dep = new Array();
