@@ -368,7 +368,7 @@ $(document).ready(function(){
 		// Se sim, disponibilizar colunas listadas a cima
 		if($(this).val()=='sim'){
 			$().showFields(dep);
-			$().hideField(ped);
+			$().hideFields(ped);
 		// Se nao, ocultar colunas listadas a cima
 		}else if($(this).val()=='nao'){
 			dep[7] = '#divReacoesAdversasTuberculostaticosMaiores';
@@ -597,43 +597,20 @@ $(document).ready(function(){
 			}
 		}
 	});
-	//Probabilidade de TBativa
-	//O diagnostico eh tb???
-	$('#diagnostico').change(function(){
+	$('#rx').change(function(){
 		var dep = new Array();
-		dep[0] = '#divDiagnosticoDiferenteTB';
-		// Se naun, disponibilizar colunas listadas a cima
-		if($(this).val()=='nao_tb'){
-			for(div in dep){
-				var elems = $('*', dep[div]);
-				$(elems).each(function(){
-					var element = $(this);
-					if (   element[0].nodeName != 'FIELDSET'
-					    && element[0].nodeName != 'SMALL'
-					    && element[0].nodeName != 'OPTION')
-						$(this).addClass('required');
-				});
-				if($(dep[div]).css('display') != 'block')
-					$(dep[div]).toggle(function() {
-						$(this).css('background-color', hlcolor);
-						$(this).animate({backgroundColor : "white"}, 4000);
-					});
-			}
-		} else {
-			for(div in dep){
-				var elems = $('*', dep[div]);
-				$(elems).each(function(){
-					var element = $(this);
-					if (   element[0].nodeName != 'FIELDSET'
-					    && element[0].nodeName != 'SMALL'
-					    && element[0].nodeName != 'OPTION')
-						$(this).removeClass('required');
-				});
-				if($(dep[div]).css('display') != 'none')
-					$(dep[div]).toggle();
-			}
+		dep[0] = '#divDataRX';
+		dep[1] = '#divAvaliacaoPos';
+		// Se sim, disponibilizar colunas listadas a cima
+		if($(this).val()=='sim'){
+			$().showFields(dep);
+		}
+		// Se nao, ocultar colunas listadas a cima
+		if($(this).val()=='nao'){
+			$().hideFields(dep);
 		}
 	});
+	//Probabilidade de TBativa
 	$('#internacaoHospitalar').change(function(){
 		var dep = new Array();
 		dep[0] = '#divDataInternacao';

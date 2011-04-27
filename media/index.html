@@ -436,93 +436,28 @@
 					</div>
 				</fieldset>
 				<fieldset>
-					<legend id='tituloRXTorax'>RX de Tórax</legend>
-					<div id='divDataRX' class='primary'>
+					<legend>RX de T&oacute;rax</legend>
+					<div id='divRX' class='primary required' >
+						<label for='rx'> RX realizado?</label>
+						<select name='rx' id='rx' class='selectOne required'>
+							<option value=''        > ------      </option>
+							<option value='sim'     > Sim         </option>
+							<option value='nao'     > N&atilde;o  </option>
+						</select>
+					</div>
+					<div id='divDataRX' class='secondary'>
 						<label for='data_rx'> Data do RX:</label>
 						<input  name="data_rx" id="data_rx" type="text" class='data'/>
 					</div>
-					<div id='divAvaliacaoPos' class='primary required'>
+					<div id='divAvaliacaoPos' class='secondary'>
 					<label> Avaliação(Comparar o RXT inicial com o atual): </label>
-					<select name='avaliacaoPos' id='avaliacaoPos' class='selectOne required'>
+					<select name='avaliacaoPos' id='avaliacaoPos' class='selectOne'>
 						<option value=''>  ----  </option>
 						<option value='piora'>Piora</option>
 						<option value='melhora'>Melhora</option>
 						<option value='Inalterado'>Inalterado</option>
 						<option value='naorealizado'>Não Realizado</option>
 					</select>
-					</div>
-				</fieldset>
-				<fieldset>
-					<legend> Diagnóstico </legend>
-					<div id='divDiagnostico' class='primary'>
-						<label for='diagnostico'> Diagnóstico: </label>
-						<select name='diagnostico' id='diagnostico' class='selectOne'>
-							<option value="melhora"    type="radio" />TB pulmonar       </option>
-							<option value="inalterado" type="radio" />TB Extra-pulmonar </option>
-							<option value="piorado"    type="radio" />Pulmonar+Extra    </option>
-							<option value="nao_tb"     type="radio" />N&atilde;o TB   </option>
-							<option value="ignorado"   type="radio" />Ignorado   </option>
-						</select>
-					</div>
-					<div id='divDiagnosticoDiferenteTB' class='secondary'>
-						<fieldset>
-							<legend> Em caso de outro Diagnóstico diferente de TB </legend>
-							<label for='diagnosticoDiferenteTB' class='labelRadio'>
-								<input name="diagnosticoDiferenteTB" value="asma"      type="checkbox" /> Asma
-							</label>
-							<label for='diagnosticoDiferenteTB' class='labelRadio'>
-								<input name="diagnosticoDiferenteTB" value="rinossinusite"      type="checkbox" /> Rinossinusite
-							</label>
-							<label for='diagnosticoDiferenteTB' class='labelRadio'>
-								<input name="diagnosticoDiferenteTB" value="dpco_infeccao"     type="checkbox"> DPOC + Infecção brônquica inespecífica
-							</label>
-							<label for='diagnosticoDiferenteTB' class='labelRadio'>
-								<input name="diagnosticoDiferenteTB" value="pneumo_bacteria"   type="checkbox" /> Pneumonia
-							</label>
-							<label for='diagnosticoDiferenteTB' class='labelRadio'>
-								<input name="diagnosticoDiferenteTB" value="sequela_infeccao"  type="checkbox"> Infeção brônquica inespecífica
-							</label>
-							<label for='diagnosticoDiferenteTB' class='labelRadio'>
-								<input name="diagnosticoDiferenteTB" value="micose_pulmonar"   type="checkbox" /> Micose pulmonar
-							</label>
-							<label for='diagnosticoDiferenteTB' class='labelRadio'>
-								<input name="diagnosticoDiferenteTB" value="pneumoconiose"     type="checkbox"> Pneumoconiose
-							</label>
-							<label for='diagnosticoDiferenteTB' class='labelRadio'>
-								<input name="diagnosticoDiferenteTB" value="ca_de_pulmao"      type="checkbox" /> CA de pulmão
-							</label>
-							</label>
-							<label for='diagnosticoDiferenteTB' class='labelRadio'>
-								<input name="diagnosticoDiferenteTB" value="falencia_cardiaca" type="checkbox" /> Falência cardíaca
-							</label>
-							<label for='diagnosticoDiferenteTB' class='labelRadio'>
-								<input name="diagnosticoDiferenteTB"  id='diagnosticoDifOutros' value="outros" type="checkbox" /> Outro:
-							</label>
-							<input name="outro_diagnostico_sim" id="outro_diagnostico_sim" maxlength="100" type="text" disabled />
-							</td>
-						</label>
-						</fieldset>
-					</div>
-					<div id='divObservacoes' class='primary'>
-						<label for='observacoes' class='labelTextarea'> Observações</label>
-						<textarea id="observacoes" name="observacoes" rows="5"></textarea>
-					</div>
-				</fieldset>
-				<fieldset>
-					<div id='divResponsavelPreenchimento' class='primary'>
-						<label for='responsavelPreenchimento'> Responsável pelo Preenchimento: </label>
-						<input name='responsavelPreenchimento' id='responsavelPreenchimento' type='text' size='40' class='text' />
-					</div>
-					<div id='divDataPreenchimento' class='primary'>
-						<label for='dataPreenchimento'> Data do Preenchimento: </label>
-						<input name='dataPreenchimento' id='dataPreenchimento' type='text' size='40' readonly/>
-					</div>
-					<div id='divHorarioFimEntrevista' class='primary required'>
-						<label for='horarioFimEntrevista'> Horário do fim da entrevista: </label>
-						<input type='text' name='horarioFimEntrevista' id='horarioFimEntrevista' size='6' maxlength='6' readonly/>
-					</div>
-					<div id='fraseAjudaHorario'>
-						<p>O horário do fim da entrevista será preenchido automaticamente ao clicar no botão "Enviar Formulário."</p><br />
 					</div>
 				</fieldset>
 				<fieldset>
