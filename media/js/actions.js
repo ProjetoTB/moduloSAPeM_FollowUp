@@ -361,8 +361,9 @@ $(document).ready(function(){
 		dep[0] = '#divDataInicio';
 		dep[1] = '#divTratamentoPrescritoTBFarmaco';
 		dep[2] = '#divReacoesAdversasTuberculostaticos';
-		dep[3] = '#divMudancaEsquemaTratamentoTB';
-		dep[4] = '#divTosseDiminuida';
+		dep[3] = '#divInterrupcaoTratamento';
+		dep[4] = '#divMudancaEsquemaTratamentoTB';
+		dep[5] = '#divTosseDiminuida';
 		var ped = new Array();
 		ped[0] = '#divMotivoSeguimentoNaoRealizado';
 		// Se sim, disponibilizar colunas listadas a cima
