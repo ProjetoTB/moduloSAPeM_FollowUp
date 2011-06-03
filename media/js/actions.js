@@ -729,6 +729,15 @@ $(document).ready(function(){
 		}
 	});
 
+	$('input[name=semMaioresReacoesAdversas]').click(function(){
+		if ($(this).attr('checked')){
+			$('input[name=reacoesAdversasTuberculostaticosMaiores]').attr('disabled', 'true');
+			$('input[name=reacoesAdversasTuberculostaticosMaiores]').removeAttr('checked');
+		}
+		else
+			$('input[name=reacoesAdversasTuberculostaticosMaiores]').removeAttr('disabled');
+	});
+
 	$('input[name=mudancaFarmacos]').click(function(){
 		if($(this).val() == 'outros')
 		{
