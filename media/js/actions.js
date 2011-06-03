@@ -364,6 +364,7 @@ $(document).ready(function(){
 		dep[3] = '#divInterrupcaoTratamento';
 		dep[4] = '#divMudancaEsquemaTratamentoTB';
 		dep[5] = '#divTosseDiminuida';
+		dep[14] = '#divDataSeguimentoClinico';
 		var ped = new Array();
 		ped[0] = '#divMotivoSeguimentoNaoRealizado';
 		// Se sim, disponibilizar colunas listadas a cima
