@@ -738,6 +738,16 @@ $(document).ready(function(){
 			$('input[name=reacoesAdversasTuberculostaticosMaiores]').removeAttr('disabled');
 	});
 
+	$('input[name=semMenoresReacoesAdversas]').click(function(){
+		if ($(this).attr('checked')){
+			$('input[name=reacoesAdversasTuberculostaticosMenores]').attr('disabled', 'true');
+			$('input[name=reacoesAdversasTuberculostaticosMenores]').removeAttr('checked');
+		}
+		else
+			$('input[name=reacoesAdversasTuberculostaticosMenores]').removeAttr('disabled');
+
+	});
+
 	$('input[name=mudancaFarmacos]').click(function(){
 		if($(this).val() == 'outros')
 		{
