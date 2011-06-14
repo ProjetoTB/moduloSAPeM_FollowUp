@@ -453,7 +453,7 @@ $(document).ready(function(){
 		dep[1] = '#divReacoesAdversasTuberculostaticosMenores';
 		// Se sim, disponibilizar colunas listadas a cima
 		if($(this).val()=='sim')
-			$().showFields(dep);
+			$().showFieldsWithoutRequirement(dep);
 		// Se nao, ocultar colunas listadas a cima
 		if($(this).val()=='nao' || $(this).val()=='ignorado')
 			$().hideFields(dep);
