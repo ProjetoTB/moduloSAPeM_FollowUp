@@ -352,6 +352,13 @@ $(document).ready(function(){
 			return false;
 		}
 	});
+
+	$('.hour').livequery('keypress', function(e){
+		if((e.which > 31 && e.which < 48)||(e.which > 57))
+			return false;
+		$('.hour').timeEntry({show24Hours: true});
+	});
+
 /*------------------------------------------------------------------------------*/
 /*--------------------------- Secondary Fields ---------------------------------*/
 
@@ -780,6 +787,9 @@ $(document).ready(function(){
 	});
 	*/
 	$('#horarioInicioEntrevista').val(getTime());
+	$('#horarioInicioEntrevista').click(function(){
+		$(this).val('');
+	});
 /*---------------------------------------------------------------------------------------------------------*/
 /*---------------------------------------------------------------------------*/
 	$('div.secondary').css('display', 'none');
