@@ -794,36 +794,6 @@ $(document).ready(function(){
 /*---------------------------------------------------------------------------*/
 	$('div.secondary').css('display', 'none');
 /*---------------------------------------------------------------------------*/
-	//Temporary Solution
-	// All primary fields are required
-	$('div.primary').each(function(){
-		var elem_primary = $('*', this);
-		$(elem_primary).each(function(){
-			var element = $(this);
-			if (  element[0].nodeName != 'FIELDSET'
-			   && element[0].nodeName != 'SMALL'
-			   && element[0].nodeName != 'OPTION')
-				$(this).addClass('required');
-		});
-	});
-	//But Observacoes and "Outros sintomas"
-	var elem_obs = $('*','#divObservacoes');
-	$(elem_obs).each(function(){
-		var element = $(this);
-		if (  element[0].nodeName != 'FIELDSET'
-		   && element[0].nodeName != 'SMALL'
-		   && element[0].nodeName != 'OPTION')
-			$(this).removeClass('required');
-	});
-	var elem_outrosSint = $('*','#divOutrosSintomas');
-	$(elem_outrosSint).each(function(){
-		var element = $(this);
-		if (  element[0].nodeName != 'FIELDSET'
-		   && element[0].nodeName != 'SMALL'
-		   && element[0].nodeName != 'OPTION')
-			$(this).removeClass('required');
-	})
-/*---------------------------------------------------------------------------*/
 /*------------------------- Load Exames Form --------------------------------*/
 	var sUrl = '../../../patientLastRegisterByType/' + fichaId + '/Exames/';
 	var edits = new Object();

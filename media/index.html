@@ -27,14 +27,14 @@
 		<div id='content'>
 			<div id='maincontent'><form id='form_followup' action='cgi-bin/submitForm.py' method='POST'>
 				<fieldset>
-					<div id='divHorarioInicioEntrevista' class='primary required'>
+					<div id='divHorarioInicioEntrevista' class='primary'>
 						<label for='horarioInicioEntrevista'> Horário do Inicio da entrevista: </label>
 						<input type='text' name='horarioInicioEntrevista' id='horarioInicioEntrevista' size='5' maxlength='5' class='hour'/>
 					</div>
 				</fieldset>
 				<fieldset id='followup'>
 					<legend>Seguimento Clínico</legend>
-					<div id='divFormulario' class='primary'>
+					<div id='divFormulario' class='primary required'>
 						<label for='formulario'>Formulário:</label>
 						<select name='formulario' id='formulario' class='selectOne'>
 							<option value=''					> ------ 							</option>
@@ -42,7 +42,7 @@
 							<option value='seguimentoClinico180'> Seguimento Clínico de TB resistente	</option>
 						</select>
 					</div>
-					<div id='divSeguimentoClinico' class='primary'>
+					<div id='divSeguimentoClinico' class='primary required'>
 						<label for='seguimentoClinico'> Seguimento clínico:</label>
 						<select name='seguimentoClinico' id='seguimentoClinico' class='selectOne'>
 							<option value=''						> ----						</option>
@@ -83,7 +83,7 @@
 						<label for='dataEncaminhamento'>Data do encaminhamento</label>
 						<input name='dataEncaminhamento' id='dataEncaminhamento' class='data'/>
 					</div>
-					<div id='divTratamentoPrescritoTB' class='primary'>
+					<div id='divTratamentoPrescritoTB' class='primary required'>
 						<label for='tratamentoPrescritoTB'>Seguimento Clínico Realizado:</label>
 						<select name='tratamentoPrescritoTB' id='tratamentoPrescritoTB' class='selectOne'>
 							<option value='' > ------ </option>
@@ -151,7 +151,7 @@
 							<input name="farmacosOutros" id="farmacosOutros" type="text" size='50' disabled/>
 						</fieldset>
 					</div>
-					<div id='divObito' class='primary'>
+					<div id='divObito' class='primary required'>
 						<label for='obito'>Houve óbito:</label>
 						<select name='obito' id='obito' class='selectOne'>
 							<option value=''        > ------      </option>
@@ -409,11 +409,11 @@
 							<option value='NSA'     > NSA         </option>
 						</select>
 					</div>
-					<div id='divPesoAtual' class='primary'>
+					<div id='divPesoAtual' class='primary required'>
 						<label for='pesoAtual'>Peso atual:</label>
 						<input name="pesoAtual" id="pesoAtual" class='number' maxlength="3" size="5" type="text" /> Kg
 					</div>
-					<div id='divFebre' class='primary'>
+					<div id='divFebre' class='primary required'>
 						<label for='febre'>Febre:</label>
 						<select name='febre' id='febre' class='selectOne'>
 							<option value=''        	> ------      	</option>
@@ -422,7 +422,7 @@
 							<option value='ignorado'	> Ignorado    	</option>
 						</select>
 					</div>
-					<div id='divExpectoracao' class='primary'>
+					<div id='divExpectoracao' class='primary required'>
 						<label for='expectoracao'>Expectoração:</label>
 						<select name='expectoracao' id='expectoracao' class='selectOne'>
 							<option value=''        > ------      </option>
@@ -435,7 +435,7 @@
 						<label for='outrosSintomas'>Outros Sintomas:</label>
 						<input name="outrosSintomas" id="outrosSintomas" type="text" class='text'/>
 					</div>
-					<div id='divAlteracoesEvolutivasNoExameFisico' class='primary'>
+					<div id='divAlteracoesEvolutivasNoExameFisico' class='primary required'>
 						<label for='alteracoesEvolutivasNoExameFisico'>Alterações evolutivas no exame físico:</label>
 						<select name='alteracoesEvolutivasNoExameFisico' id='alteracoesEvolutivasNoExameFisico' class='selectOne'>
 							<option value=''			> -----			</option>
@@ -444,7 +444,7 @@
 							<option value='ignorado'	> Ignorado		</option>
 						</select>
 					</div>
-					<div id='divAvaliacaoGeral' class='primary'>
+					<div id='divAvaliacaoGeral' class='primary required'>
 						<label for='avaliacaoGeral'>Avaliação Clínica:</label>
 						<select name='avaliacaoGeral' id='avaliacaoGeral' class='selectOne'>
 							<option value=''          > ------      </option>
