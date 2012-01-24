@@ -247,8 +247,6 @@ $(document).ready(function(){
 							else
 								$('#' + tagname).val($(el).text());
 						}
-						if (tagname == 'observacoes')
-							$('#' + tagname).val($(el).text());
 						if (tagname == 'data_inicio')
 							$('#' + tagname).val($(el).text());
 						if (tagname == 'tratamentoPrescritoTBFarmacos')
