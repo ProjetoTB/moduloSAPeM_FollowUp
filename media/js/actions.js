@@ -142,6 +142,7 @@ $(document).ready(function(){
 		type: 'POST',
 		url: url,
 		dataType: "html",
+		cache: false,
 		success: function(text){
 			if (window.DOMParser)
 			{
@@ -166,8 +167,9 @@ $(document).ready(function(){
 							if (tagname == 'tratamentoPrescritoTBFarmacos')
 							{
 								$('input[name=tratamentoPrescritoTBFarmacos]').each(function(){
-									if ($(el).text().search($(this).val()) != -1)
+									if ($(el).text().localeCompare($(this).val()) == 0){
 										$(this).attr('checked',true);
+									}
 								});
 							}
 							if (tagname == 'farmacosOutros')
@@ -192,8 +194,9 @@ $(document).ready(function(){
 							if (tagname == 'mudancaFarmacos')
 							{
 								$('input[name=mudancaFarmacos]').each(function(){
-									if ($(el).text().search($(this).val()) != -1)
+									if ($(el).text().localeCompare($(this).val()) == 0){
 										$(this).attr('checked',true);
+									}
 								});
 							}
 							if (tagname == 'farmacos14')
@@ -238,8 +241,7 @@ $(document).ready(function(){
 						var tagname = $(el)[0].tagName;
 						idDiv = $('#'+tagname).parent().attr('id');
 						var hlcolor = '#FFF8C6';
-						if (tagname == 'diagnostico')
-						$('#' + tagname).val($(el).text());
+						if (tagname == 'diagnostico') $('#' + tagname).val($(el).text());
 						if (tagname == 'tratamentoPrescritoTB')
 						{
 							if ($(el).text() == '')
@@ -252,9 +254,10 @@ $(document).ready(function(){
 						if (tagname == 'tratamentoPrescritoTBFarmacos')
 						{
 							$('input[name=tratamentoPrescritoTBFarmacos]').each(function(){
-									if ($(el).text().search($(this).val()) != -1)
-									$(this).attr('checked',true);
-									});
+									if ($(el).text().localeCompare($(this).val()) == 0){
+										$(this).attr('checked',true);
+									}
+							});
 						}
 						if (tagname == 'farmacosOutros')
 						{
@@ -780,8 +783,6 @@ $(document).ready(function(){
 	//a portuguese format
 	/*
 	$('#form_followup').submit(function(){
-		if ($('#horarioFimEntrevista').val() == '')
-			$('#horarioFimEntrevista').val(getTime());
 	});
 	*/
 	$('#horarioInicioEntrevista').val(getTime());
@@ -823,4 +824,17 @@ $(document).ready(function(){
 /*-------------------------- Form Validation --------------------------------*/
 	$('#form_followup').validate();
 /*---------------------------------------------------------------------------*/
+	$('#form_followup').submit(function(){
+		$('input[name=tratamentoPrescritoTBFarmacos]').each(function(){
+			$(this).attr('disabled',false);
+		});
+		if($('input[name=data_inicio]').val()) $('input[name=data_inicio]').attr('disabled',false);
+		if(!$('#tratamentoPrescritoTB').val().localeCompare('sim')  ||
+		   !$('#tratamentoPrescritoTB').val().localeCompare('nao')) {
+			$('#tratamentoPrescritoTB').attr('disabled',false);
+		}
+		$('input[name=mudancaFarmacos]').each(function(){
+			$(this).attr('disabled',false);
+		});
+	});
 });
