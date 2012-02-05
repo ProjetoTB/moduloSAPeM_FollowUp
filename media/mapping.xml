@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<fields>
+	<horarioInicioEntrevista> Horário do Inicio da entrevista </horarioInicioEntrevista>
+	<formulario> Formulário </formulario>
+	<seguimentoClinico> Seguimento clínico </seguimentoClinico>
+	<internacaoHospitalar> Houve internação hospitalar </internacaoHospitalar>
+	<dataInternacao> Data da internação </dataInternacao>
+	<dataAlta> Data da alta </dataAlta>
+	<encaminhamentoParaUbs> Houve encaminhamento para UBS? </encaminhamentoParaUbs>
+	<dataAltaHospitalar> Data da alta hospitalar </dataAltaHospitalar>
+	<dataEncaminhamento> Data do encaminhamento </dataEncaminhamento>
+	<tratamentoPrescritoTB> Seguimento Clínico Realizado </tratamentoPrescritoTB>
+	<motivoSeguimentoNaoRealizado> Motivo </motivoSeguimentoNaoRealizado>
+	<dataSeguimentoClinico> Data do seguimento clínico </dataSeguimentoClinico>
+	<data_inicio> Data do início do tratamento </data_inicio>
+	<tratamentoPrescritoTBFarmacos> Farmacos Utilizados </tratamentoPrescritoTBFarmacos>
+	<obito> Houve óbito </obito>
+	<casoObito> Causa </casoObito>
+	<data_obito> Data do  óbito </data_obito>
+	<reacoesAdversasTuberculostaticos> Reação adversa dos medicamentos anti-TB </reacoesAdversasTuberculostaticos>
+	<reacoesAdversasTuberculostaticosMaiores> Maiores reações </reacoesAdversasTuberculostaticosMaiores>
+	<reacoesAdversasTuberculostaticosMenores> Menores reações </reacoesAdversasTuberculostaticosMenores>
+	<interrupcaoTratamento> Interrupção do tratamento </interrupcaoTratamento>
+	<mudancaEsquemaTratamentoTB> Mudança de esquema de tratamento para TB </mudancaEsquemaTratamentoTB>
+	<data_mudanca> Data da mudança </data_mudanca>
+	<mudanca> </mudanca>
+	<mudancaFarmacos> Fármacos utilizados </mudancaFarmacos>
+	<mudancaMotivo> Motivo </mudancaMotivo>
+	<suspensaoTratamentoTB> Suspensão do tratamento para TB </suspensaoTratamentoTB>
+	<suspensaoDiasTratamento> Há quantos dias suspendeu o tratamento </suspensaoDiasTratamento>
+	<tosseDiminuida> Tosse </tosseDiminuida>
+	<pesoAtual> Peso atual </pesoAtual>
+	<febre> Febre </febre>
+	<expectoracao> Expectoração </expectoracao>
+	<outrosSintomas> Outros Sintomas </outrosSintomas>
+	<alteracoesEvolutivasNoExameFisico> Alterações evolutivas no exame físico </alteracoesEvolutivasNoExameFisico>
+	<avaliacaoGeral> Avaliação Clínica </avaliacaoGeral>
+	<rx> RX realizado </rx>
+	<data_rx> Data do RX </data_rx>
+	<avaliacaoPos> Avaliação(Comparação entre o RXT inicial com o atual) </avaliacaoPos>
+	<observacoes> Observações </observacoes>
+</fields>
