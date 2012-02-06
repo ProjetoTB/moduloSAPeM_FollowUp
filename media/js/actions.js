@@ -6,6 +6,8 @@
  */
 
 /*-------------------------- Global Functions ------------------------------*/
+//jquery validation fixes : accept comma instead of dot
+
 (function($){
 	$.fn.writePortugueseDate = function(){
 		var element = $(this[0]);
@@ -106,6 +108,16 @@ function getTime(){
 	var timeStr = hours+':'+minutes;
 	return timeStr;
 }
+
+$.validator.methods.range = function (value, element, param) {
+	var globalizedValue = value.replace(",", ".");
+	return this.optional(element) || (globalizedValue >= param[0] && globalizedValue <= param[1]);
+}
+$.validator.methods.number = function (value, element) {
+	return this.optional(element) || /^-?(?:\d+|\d{1,3}(?:[\s\.,]\d{3})+)(?:[\.,]\d+)?$/.test(value);
+}
+
+
 
 //Document is ready, let's play
 $(document).ready(function(){
@@ -347,13 +359,13 @@ $(document).ready(function(){
 			return false;
 		}
 	});
-
+/*
 	$('.number').keypress(function(e){
 		if((e.which > 31 && e.which < 48)||(e.which > 57)){
 			return false;
 		}
 	});
-
+*/
 	$('.hour').livequery('keypress', function(e){
 		if((e.which > 31 && e.which < 48)||(e.which > 57))
 			return false;
@@ -822,7 +834,14 @@ $(document).ready(function(){
 	});
 /*---------------------------------------------------------------------------*/
 /*-------------------------- Form Validation --------------------------------*/
-	$('#form_followup').validate();
+
+	$('#form_followup').validate({
+		rules: {
+			pesoAtual: {
+				range: [0, 500]
+			}
+		}
+	});
 /*---------------------------------------------------------------------------*/
 	$('#form_followup').submit(function(){
 		$('input[name=tratamentoPrescritoTBFarmacos]').each(function(){
