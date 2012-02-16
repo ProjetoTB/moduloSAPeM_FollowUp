@@ -300,6 +300,7 @@ $(document).ready(function(){
 					&& element[0].nodeName != 'SMALL'
 					&& element[0].nodeName != 'OPTION')
 					$(this).addClass('required');
+					$(this).attr('disabled', false);
 				});
 			if($(dep[div]).css('display') != 'block')
 				$(dep[div]).toggle(function() {
@@ -313,6 +314,13 @@ $(document).ready(function(){
 		var dep = argumento;
 		for(div in dep){
 			var elems = $('*', dep[div]);
+			$(elems).each(function(){
+				var element = $(this);
+				if (element[0].nodeName != 'FIELDSET'
+					&& element[0].nodeName != 'SMALL'
+					&& element[0].nodeName != 'OPTION')
+					$(this).attr('disabled', false);
+			});
 			if($(dep[div]).css('display') != 'block')
 				$(dep[div]).toggle(function() {
 					$(this).css('background-color', hlcolor);
@@ -331,6 +339,7 @@ $(document).ready(function(){
 					&& element[0].nodeName != 'SMALL'
 					&& element[0].nodeName != 'OPTION')
 				$(this).removeClass('required');
+				$(this).attr('disabled', true);
 			});
 			if($(dep[div]).css('display') != 'none')
 				$(dep[div]).toggle();
@@ -412,15 +421,18 @@ $(document).ready(function(){
 		dep[1] = '#divDataObito';
 		var ped = new Array();
 		ped[0] = '#divTosseDiminuida';
-		ped[1] = '#divPesoAtual';
-		ped[2] = '#divAlteracoesEvolutivasNoExameFisico';
-		ped[3] = '#divFebre';
-		ped[4] = '#divExpectoracao';
-		ped[5] = '#divAvaliacaoGeral';
-		ped[6] = '#divOutrosSintomas';
+		ped[1] = '#divAlteracoesEvolutivasNoExameFisico';
+		ped[2] = '#divFebre';
+		ped[3] = '#divExpectoracao';
+		ped[4] = '#divAvaliacaoGeral';
+		ped[5] = '#divOutrosSintomas';
+		
+		var notReq = new Array();
+		notReq[0] = '#divPesoAtual';
 		// Se sim, disponibilizar colunas listadas a cima
 		if($(this).val()=='sim'){
 			$().showFields(dep);
+			$().showFieldsWithoutRequirement(notReq);
 			for(div in ped){
 				var elems = $('*', ped[div]);
 				$(elems).each(function(){
@@ -436,6 +448,7 @@ $(document).ready(function(){
 		}
 		// Se nao, ocultar colunas listadas a cima
 		if($(this).val()=='nao' || $(this).val()=='ignorado'){
+			$().hideFields(dep);
 			$().hideFields(dep);
 			for(div in ped){
 				var elems = $('*', ped[div]);
