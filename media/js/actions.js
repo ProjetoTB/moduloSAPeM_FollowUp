@@ -300,7 +300,6 @@ $(document).ready(function(){
 					&& element[0].nodeName != 'SMALL'
 					&& element[0].nodeName != 'OPTION')
 					$(this).addClass('required');
-					$(this).attr('disabled', false);
 				});
 			if($(dep[div]).css('display') != 'block')
 				$(dep[div]).toggle(function() {
@@ -313,14 +312,6 @@ $(document).ready(function(){
 	$.fn.showFieldsWithoutRequirement = function(argumento){
 		var dep = argumento;
 		for(div in dep){
-			var elems = $('*', dep[div]);
-			$(elems).each(function(){
-				var element = $(this);
-				if (element[0].nodeName != 'FIELDSET'
-					&& element[0].nodeName != 'SMALL'
-					&& element[0].nodeName != 'OPTION')
-					$(this).attr('disabled', false);
-			});
 			if($(dep[div]).css('display') != 'block')
 				$(dep[div]).toggle(function() {
 					$(this).css('background-color', hlcolor);
@@ -339,7 +330,6 @@ $(document).ready(function(){
 					&& element[0].nodeName != 'SMALL'
 					&& element[0].nodeName != 'OPTION')
 				$(this).removeClass('required');
-				$(this).attr('disabled', true);
 			});
 			if($(dep[div]).css('display') != 'none')
 				$(dep[div]).toggle();
